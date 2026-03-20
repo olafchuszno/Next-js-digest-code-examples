@@ -1,13 +1,13 @@
 // action.ts
-"use server";
+'use server';
 
 export async function createPost(formData: FormData) {
-  const title = formData.get("title");
+  const title = formData.get('title');
   await db.post.create({ data: { title } });
 }
 
 // page.tsx
-import { createPost } from "./action";
+import { createPost } from './action';
 
 export default function Page() {
   return (

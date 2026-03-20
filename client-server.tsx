@@ -1,5 +1,5 @@
 // app/blog/ClientWrapper.tsx (Client component)
-"use client";
+'use client';
 
 export function ClientWrapper({ children }: { children: React.ReactNode }) {
   const [visible, setVisible] = useState(true);
@@ -7,8 +7,8 @@ export function ClientWrapper({ children }: { children: React.ReactNode }) {
 }
 
 // app/blog/page.tsx (Server Component)
-import { ClientWrapper } from "./ClientWrapper";
-import { ServerContent } from "./ServerContent";
+import { ClientWrapper } from './ClientWrapper';
+import { ServerContent } from './ServerContent';
 
 export default function BlogPage() {
   return (

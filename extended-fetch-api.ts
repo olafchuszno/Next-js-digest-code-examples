@@ -3,4 +3,4 @@ const response = await fetch(url, {
 });
 
 // After data mutation
-revalidateTag("some-cache-tag")
+revalidateTag('some-cache-tag');

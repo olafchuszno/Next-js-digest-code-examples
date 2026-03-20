@@ -1,12 +1,14 @@
 // app/post/[postId]/page.tsx
-
 import { cookies, headers } from 'next/headers';
 
 // Forces dynamic rendering
 export const dynamic = 'force-dynamic';
 
 // Almost everything in this page forces it to be dynamically rendered
-export default async function Page({ params, searchParams }: PageProps<'/dynamic-route/[postId]'>) {
+export default async function Page({
+  params,
+  searchParams,
+}: PageProps<'/dynamic-route/[postId]'>) {
   const { postId } = await params;
   const { page = '1', sort = 'date' } = await searchParams;
 
@@ -25,7 +27,7 @@ export default async function Page({ params, searchParams }: PageProps<'/dynamic
         Authorization: `Bearer ${token}`,
         'Accept-Language': locale || 'en',
       },
-    }
+    },
   );
 
   const post = await res.json();

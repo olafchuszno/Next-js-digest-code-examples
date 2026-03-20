@@ -1,5 +1,5 @@
 // app/api/todos/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET() {
   const todos = await db.todo.findMany();
