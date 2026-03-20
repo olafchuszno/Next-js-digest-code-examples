@@ -1,0 +1,34 @@
+// app/post/[postId]/page.tsx
+
+import { cookies, headers } from 'next/headers';
+
+// Forces dynamic rendering
+export const dynamic = 'force-dynamic';
+
+// Almost everything in this page forces it to be dynamically rendered
+export default async function Page({ params, searchParams }: PageProps<'/dynamic-route/[postId]'>) {
+  const { postId } = await params;
+  const { page = '1', sort = 'date' } = await searchParams;
+
+  // Also forces dynamic rendering
+  const cookieStore = await cookies();
+  const headerStore = await headers();
+
+  const token = cookieStore.get('token')?.value;
+  const locale = headerStore.get('accept-language');
+
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${postId}?page=${page}&sort=${sort}`,
+    {
+      cache: 'no-store',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Accept-Language': locale || 'en',
+      },
+    }
+  );
+
+  const post = await res.json();
+
+  return <div>{post.title}</div>;
+}
