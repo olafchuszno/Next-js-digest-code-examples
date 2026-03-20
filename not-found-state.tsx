@@ -1,6 +1,6 @@
 // blog-post/not-found.tsx
 export default async function NotFound() {
   return (
-     <div>Our fully custom 404 state</div>
+     <div>A fully custom 404 page</div>
   );
 }

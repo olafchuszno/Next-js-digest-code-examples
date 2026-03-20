@@ -1,5 +1,4 @@
 // blog-post/error.tsx
-
 'use client';
 
 import { startTransition } from 'react';

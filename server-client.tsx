@@ -1,4 +1,4 @@
-// ServerPage.tsx (Server Component)
+// page.tsx (Server Component)
 import { LikeButton } from "./LikeButton";
 
 export default async function ServerPage() {
